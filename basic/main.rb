@@ -10,7 +10,11 @@ print "Hello World!"
 print "Enter a number: "
 first_num = gets.to_i
 print "Enter another number: "
-second_num = gets.to_i 
+second_num = gets.to_i
+## for removing the \n after input
+## use chomp
+print "Enter your name: "
+user_input = gets.chomp
 ## and output data
 ## put adds a new line
 ## where print doesn't
@@ -58,10 +62,48 @@ puts "End of multi-line comment"
 age = 12
 ## conditions start with if
 ## and should be closed with end
+## available comparison operators
+## ==, !=, <, >, <=, >=
+## logical operators
+## &&, ||, !, and, or, not
 if (age >= 5) && (age <= 6)
     puts "You're in kindergarten"
 elsif (age >= 7) && (age <= 13)
     puts "You're in middle school"
 else
     puts "Stay Home"
+end
+puts "true && false = " + (true && false).to_s
+puts "true || false = " + (true || false).to_s
+puts "!false = " + (!false).to_s
+## the interesting comparison operator
+## is this <=>
+## where it returns 0 when the sides are equal
+## 1 if the first is greater
+## and -1 if first is less than 
+puts "5 <=> 10 = "+(5<=>10).to_s 
+## unless is another cool operator to use
+## which basically only execute
+## the code after unless
+## where the condition is false
+unless age > 4
+    puts "no school" 
+else
+    puts "go to school"
+end
+## we could use conditions in other ways
+puts "You're young" if age < 40
+## we can also use case statements
+puts "Enter Greeting: "
+greetings = gets.chomp
+case greetings
+when "Spanish", "spanish"
+    puts "Hola"
+    exist
+when "French", "french"
+    puts "Bonjour"
+    exit
+else 
+    puts "Hello!"
+    exit 
 end
