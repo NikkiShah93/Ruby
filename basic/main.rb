@@ -44,4 +44,24 @@ write_handler.puts("This is the content").to_s
 write_handler.close
 ## and then for reading
 data_from_file = File.read("newFile.out")
-puts "File content: "+data_from_file
+puts "File content: "+ data_from_file
+## if we wanted to load
+## and execute another ruby file
+## we can do the following
+## load "fileName.rb"
+## for multiline commentes
+=begin 
+this is a multiline comment
+=end
+puts "End of multi-line comment"
+## for conditional operations
+age = 12
+## conditions start with if
+## and should be closed with end
+if (age >= 5) && (age <= 6)
+    puts "You're in kindergarten"
+elsif (age >= 7) && (age <= 13)
+    puts "You're in middle school"
+else
+    puts "Stay Home"
+end
