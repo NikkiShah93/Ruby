@@ -389,4 +389,67 @@ generic_bird = Bird.new
 ## we can pass in the class
 generic_bird.tweet(Cardinal.new)
 generic_bird.tweet(Parrot.new)
-
+## now for symbols
+## which are basically strings
+## that can't be changed
+## and are useful for conserving memory
+## or to speed string comparison
+## and you can create them the following way
+## and the actual value 
+## is what it's called
+## and they're very commonly used 
+## as keys inside hashes
+:John 
+puts "This is :John value -> #{:John}"
+puts "This is :John class -> #{:John.class}"
+puts "This is :John object ID -> #{:John.object_id}"
+## now for arrays
+## we can create them a few different ways
+array_1 = Array.new
+## an array w 5 spaces
+## or having a default value
+array_2 = Array.new(5)
+array_3 = Array.new(5, "default")
+## and the items can be of different types
+array_4 = [1, "two", 3, 5.5]
+puts array_1
+puts array_2
+puts array_3
+puts array_4
+## they're 9 indexed
+puts array_4[2]
+## we can get multiple values
+## and then join them together
+puts array_4[2,2].join(', ')
+## or get them the following way
+puts array_4.values_at(0,1).join(',')
+## if we want to add a value
+## at the beginning of an array
+array_4.unshift(0)
+puts array_4.join(', ')
+## or removing the first item
+array_4.shift()
+puts array_4.join(', ')
+## or add values to the end
+array_4.push(10, 15)
+puts array_4.join(', ')
+## and removing an item from the end
+array_4.pop 
+puts array_4.join(', ')
+## we can also concat two arrays
+array_4.concat([2,6,'nine'])
+puts array_4.join(', ')
+## and we can get the size
+puts "The size of the array is #{array_4.size().to_s}"
+## checking if the array inclues a value
+puts "Array contains 10 : #{array_4.include?(10).to_s}"
+## countig the occ
+puts "Array contains #{array_4.count(10).to_s} 10s "
+## checking if it's empty
+puts "is array empty? #{array_4.empty?.to_s} "
+## we can also use p to print arrays
+p array_4
+## or use each to loop 
+array_4.each do |i|
+    puts "the value is #{i}"
+end
