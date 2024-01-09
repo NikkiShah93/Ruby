@@ -99,15 +99,62 @@ greetings = gets.chomp
 case greetings
 when "Spanish", "spanish"
     puts "Hola"
-    exist
+    # exit
 when "French", "french"
     puts "Bonjour"
-    exit
+    # exit
 else 
     puts "Hello!"
-    exit 
+    # exit
 end
 ## ternary operations
 age = 12
 puts (age >= 21) ? "Adult": "Minor"
 ## loops in ruby
+x = 1
+loop do
+    x+=1
+    ## next is similar to continue in python
+    next unless (x%2) == 0
+    puts x
+    ## and end break the loop
+    ## once this condition is met
+    break if x >= 10
+end
+## and then the while loops
+y = 1
+## we have the condition next to while
+while y <= 10
+    y+=1
+    next unless (y%2)==0
+    puts y 
+end
+## until loop
+## will loop until the condition is met
+a = 1
+until a >= 10
+    a+=1
+    next unless (a%2)==0
+    puts a 
+end
+## and then for loops
+## using an array
+numbers = [1, 2, 3, 4, 5]
+for number in numbers 
+    next unless (number%2)==0
+    ## use var inside strings the following way
+    puts "the number is #{number}"
+end
+## another way to cycle through an array
+## will be to use each do
+groceries = ["bananas", "sweet potatos", "pasta", 'tomatoes']
+## food is the placeholder for values
+## coming out of each
+groceries.each do |food|
+    puts "Buy some #{food}"
+end
+## we can also cycle through numbers
+## by using a range
+(0..5).each do |n|
+    puts "The number is #{n}"
+end
