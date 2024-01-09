@@ -253,3 +253,78 @@ puts full_name.delete('ho')
 puts "Using split:"
 puts full_name.split(//)
 puts full_name.split()
+## now lets go through objects
+## we can create classes the following way
+class Animal
+    ## initialize is called whenever a new obj is created
+    ## similar to __init__ in python
+    def initialize 
+        puts "Creating a new animal"
+    end 
+    ## and we can have setter and getter 
+    def set_name(new_name)
+        ## instead of using self
+        ## we use @ in ruby
+        @name = new_name
+    end 
+    def get_name
+        ## this will return name
+        @name
+    end
+    ## another way to get name
+    def name 
+        @name 
+    end 
+    ## another way to set name 
+    def name=(new_name)
+        ## we can check to see if name is valid
+        ## by checking if it's a number for instance
+        if new_name.is_a?(Numeric)
+            puts "Name can't be a number"
+        else 
+            @name = new_name
+        end 
+    end
+end 
+## and now we can create new objects
+cat = Animal.new 
+## setting the name
+cat.set_name("Peekaboo")
+## getting the name 
+puts "Cat name is #{cat.get_name}"
+puts "Cat name is #{cat.name}"
+## changing the name
+cat.name = "Garfield"
+puts "The new name is #{cat.name}"
+## lets create a new class
+class Dog
+    ## this will create all the getter functions
+    attr_reader :name, :height, :weight
+    ## and this will create all the setters
+    attr_writer :name, :height, :weight
+    ## or alternatively
+    ## create both at the same time
+    ## using attr_accessor :name, :height, :weight
+    def break
+        return "Generic bark"
+    end 
+end
+## creating a new object 
+rover = Dog.new
+rover.name = "Rover"
+puts "Dog name is #{rover.name}"
+## and we can inherit all the methods of another class
+class GermanShepard < Dog 
+    ## we can also override methods
+    def bark 
+        return "Loud bark!"
+    end 
+end 
+## and creating a new obj
+max = GermanShepard.new 
+max.name = "Max"
+puts "#{max.name} says #{max.bark}"
+## for formatted print
+## we can use printf
+## %s for strings, %d for ints, and %.3f for 3 decimal floats
+printf "%s goes %s", max.name, max.bark
