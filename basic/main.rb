@@ -360,3 +360,33 @@ end
 einstein = Scientist.new
 einstein.name = "Albert"
 puts "#{einstein.name} says #{einstein.act_smart}"
+## now polymorphism
+## statically typed languages use duck typing
+## to achieve a version of polymorphism
+## because they pay less attention 
+## to the class type vs the methods 
+## that can actually be called from an obj
+class Bird
+    def tweet(bird_type)
+        ## it will call the passed  
+        ## bird type's version of the tweet
+        bird_type.tweet
+    end
+end
+class Cardinal < Bird 
+    ## we're going to have tweet in here as well
+    def tweet
+        puts "Tweet tweet"
+    end
+end
+class Parrot < Bird
+    def tweet
+        puts "Squawk"
+    end
+end
+generic_bird = Bird.new 
+## and to simulate polymorphism
+## we can pass in the class
+generic_bird.tweet(Cardinal.new)
+generic_bird.tweet(Parrot.new)
+
