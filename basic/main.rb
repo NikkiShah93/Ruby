@@ -188,4 +188,48 @@ begin
 rescue ArgumentError
    puts "The age is invalid"
 end
+## strings in ruby
+## using formatted strings
+## we can do arithmatic inside {}
+## be careful
+## these only work with double-q
+## even though you can have single-q for strings
+puts "The number is #{(2 * 3)%4} \n\n"
+puts 'The number is #{(2 * 3)%4} \n\n'
+## having multiline strings
+multiline_string = <<EOM 
+This is a long string
+with interpolation like
+#{((9+3)**2)/7} \n\n
+EOM
+puts multiline_string
+## you can combine strings w interpolation
+first_name = "John"
+last_name = "Doe"
+full_name = "#{first_name} #{last_name}"
+puts "full name : #{full_name}"
+## you can check if a string contains another string
+puts full_name.include?(first_name)
+## you can also get the size of the string
+puts "this is the full name size : #{full_name.size}"
+## we can count the # of certain char
+## it'll count the occ of each 
+puts "Vowels : " + full_name.count("aeiou").to_s
+## use ^ for negations
+puts "Consonants : " + full_name.count("^aeiou").to_s
+## we can also use start_with 
+puts full_name.start_with?(last_name)
+## we can get the index 
+puts "the index is : #{full_name.index(last_name).to_s}"
+## we can check if two strings are the same
+puts first_name.equal?first_name
+## we can also change the case like so
+puts "changing the case"
+puts full_name.upcase 
+puts full_name.downcase
+puts full_name.swapcase
+## we can also strip the string like python
+puts full_name.lstrip
+puts full_name.rstrip
+puts full_name.strip
 
