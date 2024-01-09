@@ -327,4 +327,36 @@ puts "#{max.name} says #{max.bark}"
 ## for formatted print
 ## we can use printf
 ## %s for strings, %d for ints, and %.3f for 3 decimal floats
-printf "%s goes %s", max.name, max.bark
+printf "%s goes %s\n", max.name, max.bark
+## now for modules
+## it's useful to add functinality to a class
+## because you can only inherit from one class
+## but you can use multiple modules 
+## when accessing the modules
+## we use require, and given they're in the same dir
+require_relative "human"
+module AnimalModule 
+    def make_sound
+        puts "Grrr"
+    end
+end
+class Cat 
+    ## for adding modules 
+    include AnimalModule
+end 
+garfield = Cat.new 
+garfield.make_sound
+## now using the human module
+class Scientist
+    include Human
+    ## if we use prepend
+    ## the methods in the module
+    ## will precede the ones defined in class
+    ## prepend Human
+    def act_smart 
+        return "E = mc^2"
+    end 
+end
+einstein = Scientist.new
+einstein.name = "Albert"
+puts "#{einstein.name} says #{einstein.act_smart}"
