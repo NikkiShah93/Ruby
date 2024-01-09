@@ -232,4 +232,24 @@ puts full_name.swapcase
 puts full_name.lstrip
 puts full_name.rstrip
 puts full_name.strip
-
+## and for formatting of strings
+## we can do right, left, and center justify
+## and then use . for any spaces
+puts "formatted strings:"
+puts full_name.rjust(20, '.')
+puts full_name.ljust(20, '.')
+puts full_name.center(20, '.')
+## we can also use chop and chomp for cleaning
+## where chop removes the last char
+## and chomp removes line breaks if any
+puts full_name.chop 
+puts full_name.chomp
+## we can also pass in char that we want to remove
+puts full_name.chomp('oe')
+## we can also use delete for removing certain char
+puts full_name.delete('ho')
+## we can use split to break down strings
+## passing // will break it down into char
+puts "Using split:"
+puts full_name.split(//)
+puts full_name.split()
