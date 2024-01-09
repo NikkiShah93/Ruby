@@ -453,3 +453,42 @@ p array_4
 array_4.each do |i|
     puts "the value is #{i}"
 end
+## now hashes
+## which are basically key value pairs
+number_hash = {"PI"=> 3.14, "Golden"=> 1.618, "e"=>2.718}
+## and we can get specific keys the following way
+puts "the PI value is #{number_hash["PI"]}"
+## we can also create new hashes the following way
+## where the even positions are key
+## and the odd ones are values
+superheros = Hash["Clark Kent", "Superman", "Bruce Wayne", "Batman"]
+puts "The superhero name is #{superheros["Clark Kent"]}"
+## we can also add new keys
+superheros["Barry Allen"] = "Flash"
+## you can have a default value
+## for cases where there's no such key
+samp_hash = Hash.new('No Such Key')
+puts "Looking for an invalid key : #{samp_hash['random_key']}"
+## you can use update on hashes
+## which are distructive merges
+## meaning, if there are duplicates
+## they'll be eliminated
+superheros.update(number_hash)
+puts "The superhero hash: #{superheros}"
+## we can instead use merge
+## which is non distructive
+## and would keep all the keys
+superheros.merge({"PI" => 3.1416})
+puts "The superhero hash: #{superheros}"
+## you can use each with hashes as well
+superheros.each do |key, val|
+    puts "The key is #{key} and the value is #{val}"
+end
+## there are many functions available for hashes
+puts "Is the key Bruce Wayne present? #{superheros.has_key?("Bruce Wayne").to_s}"
+puts "Is the value Batman present? #{superheros.has_value?("Batman").to_s}"
+puts "Is is empty? #{superheros.empty?.to_s}"
+puts "What is the size? #{superheros.size.to_s}"
+## and for deleting keys
+superheros.delete("PI")
+puts "What is the size after delete? #{superheros.size.to_s}"
