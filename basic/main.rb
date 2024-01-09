@@ -158,3 +158,34 @@ end
 (0..5).each do |n|
     puts "The number is #{n}"
 end
+## next thing is functions
+def add_num(num_1, num_2)
+    return num_1.to_i + num_2.to_i
+## be careful
+## the functions also need to have end
+end
+puts add_num(3, 6)
+## and then exceptions
+## they have different names in ruby
+## if we think a section will throw an error
+## we can put it inside begin
+a = 1
+b = 3
+begin 
+    div = a / b
+## and then we have rescue
+## if there's an error
+rescue
+    puts "the division had an issue"
+    # exit
+end
+## and you can throw your own exception by raise
+def check_age(age)
+    raise ArgumentError, "Enter a positive number" unless age > 0 
+end 
+begin
+    check_age(-1)
+rescue ArgumentError
+   puts "The age is invalid"
+end
+
