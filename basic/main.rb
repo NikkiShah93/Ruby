@@ -107,3 +107,7 @@ else
     puts "Hello!"
     exit 
 end
+## ternary operations
+age = 12
+puts (age >= 21) ? "Adult": "Minor"
+## loops in ruby
