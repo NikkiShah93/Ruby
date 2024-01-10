@@ -492,3 +492,63 @@ puts "What is the size? #{superheros.size.to_s}"
 ## and for deleting keys
 superheros.delete("PI")
 puts "What is the size after delete? #{superheros.size.to_s}"
+## and now the enumerables
+## given you want to use them
+## you need a function called each
+## and yield values
+class Menu
+    include Enumerable 
+    def each 
+        yield "pizza"
+        yield "spaghetti"
+        yield "salad"
+        yield "water"
+    end
+end
+menu_options = Menu.new
+## and then use each
+menu_options.each do |option|
+    puts "the menu item is #{option}"
+end 
+## we can also check if an option is available
+p menu_options.find{|option| option = "pizza"}
+## or return items that are a certain criteria
+p menu_options.select{|option| option.size <= 5}
+## or not select/reject items with a certain criteria
+p menu_options.reject{|option| option.size > 6}
+## we can pick the first item
+p menu_options.first 
+## or the first few
+p menu_options.take(2)
+## or not show the first two
+p menu_options.drop(2)
+## we can get min and max items
+## in this case it'll be alphabetical order
+p menu_options.min 
+p menu_options.max
+## we can sort or reverse it
+p menu_options.sort 
+menu_options.reverse_each{|option| puts option}
+## and lastly, the file object
+## you can create new files the following way
+file = File.new("authors.out", "w")
+## and write to it 
+file.puts "William Shakespeare"
+file.puts "Agatha Christie"
+file.puts "Barbara Cartland"
+## and then you should close it
+file.close 
+## and you can also read the files
+puts File.read("authors.out")
+## or you want to open a file for appending
+## by passing a instead of w
+file = File.new("authors.out", "a")
+file.puts "Danielle Steel"
+file.close 
+puts File.read("authors.out")
+## if we want to loop through 
+File.open("authors.out") do |author|
+    author.each do |info| 
+        puts info
+    end
+end
